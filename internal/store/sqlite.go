@@ -56,7 +56,6 @@ func (s *SQLiteStore) migrate() error {
 
 	CREATE INDEX IF NOT EXISTS idx_facts_source_dir ON facts(source_dir);
 	CREATE INDEX IF NOT EXISTS idx_facts_created_at ON facts(created_at);
-	CREATE INDEX IF NOT EXISTS idx_facts_deleted_at ON facts(deleted_at);
 
 	CREATE VIRTUAL TABLE IF NOT EXISTS facts_fts USING fts5(content, content=facts, content_rowid=id);
 
@@ -101,6 +100,9 @@ func (s *SQLiteStore) migrate() error {
 
 	// Migration: Add deleted_at column if it doesn't exist (for existing databases)
 	_, _ = s.db.Exec("ALTER TABLE facts ADD COLUMN deleted_at DATETIME")
+
+	// Create index on deleted_at (must be after the column migration for existing databases)
+	_, _ = s.db.Exec("CREATE INDEX IF NOT EXISTS idx_facts_deleted_at ON facts(deleted_at)")
 
 	return nil
 }
