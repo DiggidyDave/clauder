@@ -1,15 +1,46 @@
 # Clauder
 
-An MCP server that provides AI coding tools with persistent memory and multi-instance communication.
+**Make your AI coding agents talk to each other.**
 
-Supports: Claude Code, Cursor, Windsurf, OpenCode, OpenAI Codex CLI, and Google Gemini CLI.
+You're working on a frontend. Claude is helping. Meanwhile, another Claude is working on the backend in a different terminal. They have no idea the other exists.
 
-## Features
+With clauder, they can communicate. The frontend Claude asks the backend Claude: "What's the API contract?" and gets an answer. No copy-pasting. No context switching. Just agents collaborating.
 
-- **Persistent Memory**: Store facts, decisions, and context across Claude Code sessions
-- **Multi-Instance Communication**: Discover and message other Claude Code instances running in different directories
-- **Automatic Context Injection**: Load relevant context based on your working directory
-- **Web Dashboard**: Visual interface to monitor instances, messages, and facts
+---
+
+## The Problem
+
+Modern development often means multiple services, multiple repos, multiple terminals. You might have:
+- Claude helping with the frontend in one directory
+- Claude working on the API in another
+- Claude setting up infrastructure in a third
+
+But they're completely isolated. You become the messenger, copying context between sessions. "The backend team decided to use REST" — except there is no backend team, just another Claude instance that can't talk to this one.
+
+## The Solution
+
+Clauder connects your Claude instances:
+
+```bash
+# Install
+curl -sSL https://raw.githubusercontent.com/MaorBril/clauder/main/install.sh | sh
+
+# Set up with Claude Code
+clauder setup
+
+# Now your Claude instances can find and message each other
+```
+
+From any Claude session:
+- **Discover**: "List other Claude instances" → sees what's running where
+- **Communicate**: "Ask the backend instance about the API schema" → sends a message, gets a response
+- **Coordinate**: Agents working on related services stay in sync
+
+## What Else?
+
+- **Persistent Memory**: Facts and decisions survive session restarts
+- **Web Dashboard**: See all running instances, messages, and stored context
+- **Works Everywhere**: Claude Code, Cursor, Windsurf, OpenCode, Codex CLI, Gemini CLI
 
 ## Installation
 
