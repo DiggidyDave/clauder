@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "clauder": {
-      "command": "clauder",
+      "command": "/Users/maor/.local/bin/clauder",
       "args": [
         "serve"
       ]
