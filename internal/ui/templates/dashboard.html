@@ -116,7 +116,7 @@
             border-radius: var(--radius-sm);
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
             font-weight: 500;
             position: relative;
         }
@@ -248,7 +248,7 @@
             font-weight: 500;
             font-size: 0.875rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             border: none;
             font-family: inherit;
         }
@@ -304,7 +304,7 @@
             color: var(--text);
             font-size: 0.875rem;
             font-family: inherit;
-            transition: all 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .search-box input:focus {
@@ -339,7 +339,7 @@
             font-size: 0.8125rem;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
             font-family: inherit;
         }
 
@@ -389,7 +389,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
         }
 
@@ -449,7 +449,8 @@
             letter-spacing: 0.025em;
         }
 
-        .badge-leader {
+        .badge-leader,
+        .badge-active {
             background: rgba(16, 185, 129, 0.15);
             color: var(--success-light);
         }
@@ -457,11 +458,6 @@
         .badge-idle {
             background: rgba(245, 158, 11, 0.15);
             color: var(--warning-light);
-        }
-
-        .badge-active {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--success-light);
         }
 
         .badge-inactive {
@@ -481,7 +477,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.25rem;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
             position: relative;
         }
@@ -574,7 +570,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.25rem;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
         }
 
@@ -664,6 +660,213 @@
             opacity: 1;
         }
 
+        /* Fact Stats Banner */
+        .fact-stats-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .fact-stats-summary {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .fact-stats-summary:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .fact-stats-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.125rem;
+        }
+
+        .fact-stats-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text);
+        }
+
+        .fact-stats-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .fact-stats-separator {
+            width: 1px;
+            height: 2rem;
+            background: var(--border);
+        }
+
+        .fact-stats-expand {
+            margin-left: auto;
+            color: var(--muted);
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        .fact-stats-expand.expanded {
+            transform: rotate(180deg);
+        }
+
+        .fact-stats-details {
+            display: none;
+            border-top: 1px solid var(--border);
+            padding: 1rem 1.25rem;
+        }
+
+        .fact-stats-details.expanded {
+            display: block;
+        }
+
+        .fact-stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8125rem;
+        }
+
+        .fact-stats-table th {
+            text-align: left;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.6875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .fact-stats-table td {
+            padding: 0.5rem 0.75rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        .fact-stats-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--error);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.15s;
+        }
+
+        .btn-danger:hover {
+            background: rgba(239, 68, 68, 0.25);
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        /* Select Mode */
+        .fact-card.selectable {
+            position: relative;
+            padding-left: 2.75rem;
+        }
+
+        .fact-select-checkbox {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6875rem;
+            color: white;
+        }
+
+        .fact-card.selected-for-delete .fact-select-checkbox {
+            background: var(--error);
+            border-color: var(--error);
+        }
+
+        .fact-card.selected-for-delete {
+            border-color: rgba(239, 68, 68, 0.4);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        /* Bulk Action Bar */
+        .bulk-action-bar {
+            display: none;
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 0.75rem 1.25rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 50;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bulk-action-bar.active {
+            display: flex;
+        }
+
+        .bulk-count {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text);
+            white-space: nowrap;
+        }
+
+        .bulk-action-bar .btn {
+            font-size: 0.8125rem;
+            padding: 0.375rem 0.75rem;
+        }
+
+        /* Edit/Create Form Inputs */
+        .modal-edit-textarea,
+        .modal-edit-tags-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            font-size: 0.875rem;
+        }
+
+        .modal-edit-textarea:focus,
+        .modal-edit-tags-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .modal-edit-textarea {
+            min-height: 150px;
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.6;
+            resize: vertical;
+        }
+
         /* Map View */
         .map-layout {
             display: flex;
@@ -725,7 +928,7 @@
             height: 160px;
             position: relative;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             margin: 0 5px;
         }
 
@@ -740,7 +943,7 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .hex:hover .hex-inner {
@@ -871,7 +1074,7 @@
             padding: 0.875rem;
             border-radius: var(--radius-sm);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
             margin-bottom: 0.5rem;
             background: transparent;
             border: 1px solid transparent;
@@ -1046,7 +1249,7 @@
             line-height: 1;
             padding: 0.25rem;
             border-radius: var(--radius-sm);
-            transition: all 0.2s ease;
+            transition: color 0.2s ease, background-color 0.2s ease;
         }
 
         .modal-close:hover {
@@ -1134,7 +1337,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
         }
 
         .quick-launch-item:hover {
@@ -1240,7 +1443,7 @@
             font-size: 1.25rem;
             padding: 0.25rem 0.5rem;
             border-radius: var(--radius-sm);
-            transition: all 0.2s ease;
+            transition: color 0.2s ease, background-color 0.2s ease;
         }
 
         .terminal-btn:hover {
@@ -1286,7 +1489,7 @@
             padding: 0.625rem 1rem;
             cursor: pointer;
             box-shadow: var(--shadow-lg);
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
         }
 
         .terminal-minimized:hover {
@@ -1314,7 +1517,7 @@
             font-size: 1rem;
             padding: 0 0.25rem;
             border-radius: 4px;
-            transition: all 0.2s ease;
+            transition: color 0.2s ease, background-color 0.2s ease;
         }
 
         .terminal-minimized-close:hover {
@@ -1394,6 +1597,18 @@
         }
 
         /* Responsive */
+        @media (min-width: 1200px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 1024px) {
             .sidebar {
                 width: 240px;
@@ -1401,6 +1616,9 @@
             .main {
                 margin-left: 240px;
                 max-width: calc(100vw - 240px);
+            }
+            .session-panel {
+                width: 280px;
             }
         }
 
@@ -1412,6 +1630,76 @@
                 margin-left: 0;
                 max-width: 100vw;
             }
+            .map-layout {
+                flex-direction: column;
+            }
+            .session-panel {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Visible */
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .btn:focus-visible,
+        .nav-item:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Toast Notifications */
+        #toast-container {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 300;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            pointer-events: none;
+        }
+
+        .toast {
+            pointer-events: auto;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: var(--shadow-lg);
+            animation: toast-in 0.3s ease forwards;
+            max-width: 360px;
+        }
+
+        .toast.removing {
+            animation: toast-out 0.3s ease forwards;
+        }
+
+        .toast-success { background: var(--success); }
+        .toast-error { background: var(--error); }
+        .toast-warning { background: var(--warning); color: #1a1a2e; }
+        .toast-info { background: var(--primary); }
+
+        @keyframes toast-in {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes toast-out {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100%); }
         }
 
         /* Scrollbar */
@@ -1444,22 +1732,22 @@
             </div>
 
             <nav class="nav">
-                <div class="nav-item active" data-view="map">
+                <div class="nav-item active" data-view="map" tabindex="0" role="button">
                     <span class="nav-icon">&#11042;</span>
                     <span>Map</span>
                     <span class="nav-badge" id="nav-map-count">0</span>
                 </div>
-                <div class="nav-item" data-view="instances">
+                <div class="nav-item" data-view="instances" tabindex="0" role="button">
                     <span class="nav-icon">&#9673;</span>
                     <span>Instances</span>
                     <span class="nav-badge" id="nav-instances-count">0</span>
                 </div>
-                <div class="nav-item" data-view="messages">
+                <div class="nav-item" data-view="messages" tabindex="0" role="button">
                     <span class="nav-icon">&#9993;</span>
                     <span>Messages</span>
                     <span class="nav-badge warning" id="nav-unread-count">0</span>
                 </div>
-                <div class="nav-item" data-view="facts">
+                <div class="nav-item" data-view="facts" tabindex="0" role="button">
                     <span class="nav-icon">&#9733;</span>
                     <span>Facts</span>
                     <span class="nav-badge" id="nav-facts-count">0</span>
@@ -1591,9 +1879,55 @@
                         <p class="page-subtitle">Stored knowledge and context</p>
                     </div>
                     <div class="header-actions">
+                        <button class="btn btn-secondary" id="select-mode-btn" onclick="toggleSelectMode()">
+                            <span>&#9745;</span> Select
+                        </button>
+                        <button class="btn btn-primary" onclick="showCreateFactModal()">
+                            <span>+</span> Add Fact
+                        </button>
                         <button class="btn btn-secondary" onclick="fetchData()">
                             <span>&#8635;</span> Refresh
                         </button>
+                    </div>
+                </div>
+
+                <div id="fact-stats-banner" class="fact-stats-banner" style="display: none;">
+                    <div class="fact-stats-summary" onclick="toggleStatsExpand()">
+                        <div class="fact-stats-item">
+                            <span class="fact-stats-value" id="fs-active">-</span>
+                            <span class="fact-stats-label">Active Facts</span>
+                        </div>
+                        <div class="fact-stats-separator"></div>
+                        <div class="fact-stats-item">
+                            <span class="fact-stats-value" id="fs-size">-</span>
+                            <span class="fact-stats-label">Total Size</span>
+                        </div>
+                        <div class="fact-stats-separator"></div>
+                        <div class="fact-stats-item">
+                            <span class="fact-stats-value" id="fs-dirs">-</span>
+                            <span class="fact-stats-label">Directories</span>
+                        </div>
+                        <div class="fact-stats-separator"></div>
+                        <div class="fact-stats-item">
+                            <span class="fact-stats-value" id="fs-deleted">-</span>
+                            <span class="fact-stats-label">Deleted</span>
+                        </div>
+                        <button class="btn-danger" id="purge-btn" style="display: none; margin-left: 0.5rem;" onclick="event.stopPropagation(); purgeDeletedFacts()">Purge</button>
+                        <span class="fact-stats-expand" id="stats-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="fact-stats-details" id="fact-stats-details">
+                        <table class="fact-stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Directory</th>
+                                    <th>Facts</th>
+                                    <th>Size</th>
+                                    <th>Oldest</th>
+                                    <th>Newest</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fact-stats-table-body"></tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -1619,26 +1953,34 @@
                     <div class="loading"><div class="spinner"></div> Loading facts...</div>
                 </div>
             </div>
+
+            <!-- Bulk Action Bar -->
+            <div class="bulk-action-bar" id="bulk-action-bar">
+                <span class="bulk-count" id="bulk-count">0 selected</span>
+                <button class="btn btn-secondary" onclick="selectAllFacts()">Select All</button>
+                <button class="btn btn-secondary" onclick="deselectAllFacts()">Deselect All</button>
+                <button class="btn-danger" onclick="bulkDeleteSelectedFacts()">Delete Selected</button>
+            </div>
         </main>
     </div>
 
     <!-- Modal -->
-    <div class="modal-overlay" id="modal">
+    <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal">
             <div class="modal-header">
                 <span class="modal-title" id="modal-title">Details</span>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <button class="modal-close" onclick="closeModal()" aria-label="Close dialog">&times;</button>
             </div>
             <div class="modal-body" id="modal-body"></div>
         </div>
     </div>
 
     <!-- Launch Modal -->
-    <div class="modal-overlay" id="launch-modal">
+    <div class="modal-overlay" id="launch-modal" role="dialog" aria-modal="true" aria-labelledby="launch-modal-title">
         <div class="modal">
             <div class="modal-header">
-                <span class="modal-title">Launch New Session</span>
-                <button class="modal-close" onclick="closeLaunchModal()">&times;</button>
+                <span class="modal-title" id="launch-modal-title">Launch New Session</span>
+                <button class="modal-close" onclick="closeLaunchModal()" aria-label="Close dialog">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="modal-field">
@@ -1681,6 +2023,9 @@
         <!-- Populated dynamically -->
     </div>
 
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
     <script>
         const REFRESH_INTERVAL = {{.RefreshInterval}} * 1000;
         const WORK_DIR = '{{.WorkDir}}';
@@ -1691,6 +2036,15 @@
         let messageFilter = 'all';
         let factFilter = 'all';
         let selectedInstanceIndex = -1;
+        let selectMode = false;
+        let selectedFacts = new Set();
+        let factStats = null;
+        let statsExpanded = false;
+        let factStatsFetchInFlight = false;
+        let lastFilteredInstances = [];
+        let lastFilteredMessages = [];
+        let lastQuickLaunchDirs = [];
+        let previousActiveElement = null;
 
         // Terminal state - support up to 4 terminals
         const MAX_TERMINALS = 4;
@@ -1704,6 +2058,12 @@
                 const view = item.dataset.view;
                 switchView(view);
             });
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    switchView(item.dataset.view);
+                }
+            });
         });
 
         function switchView(view) {
@@ -1712,6 +2072,8 @@
             document.querySelector(`[data-view="${view}"]`).classList.add('active');
             document.querySelectorAll('.view').forEach(v => v.style.display = 'none');
             document.getElementById(`${view}-view`).style.display = 'block';
+            if (view === 'facts') fetchFactStats();
+            if (view !== 'facts' && selectMode) toggleSelectMode();
         }
 
         async function fetchData() {
@@ -1721,8 +2083,24 @@
                 updateStats();
                 renderCurrentView();
                 populateFilterOptions();
+                if (currentView === 'facts') fetchFactStats();
             } catch (error) {
                 console.error('Failed to fetch data:', error);
+                const errorHtml = `
+                    <div class="empty-state">
+                        <div class="empty-icon">&#9888;</div>
+                        <div class="empty-title">Failed to load data</div>
+                        <div class="empty-description">
+                            Could not connect to the server.
+                            <a href="#" onclick="event.preventDefault(); fetchData();" style="color: var(--primary-light);">Retry</a>
+                        </div>
+                    </div>`;
+                ['instances-content', 'messages-content', 'facts-content'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && el.querySelector('.loading')) el.innerHTML = errorHtml;
+                });
+                const hexGrid = document.getElementById('hex-grid');
+                if (hexGrid && hexGrid.querySelector('.loading')) hexGrid.innerHTML = errorHtml;
             }
         }
 
@@ -1934,6 +2312,7 @@
             });
 
             if (filtered.length === 0) {
+                lastFilteredInstances = [];
                 content.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-icon">&#9673;</div>
@@ -1943,8 +2322,9 @@
                 return;
             }
 
-            content.innerHTML = filtered.map(inst => `
-                <div class="instance-card" onclick='showInstanceDetails(${JSON.stringify(inst)})'>
+            lastFilteredInstances = filtered;
+            content.innerHTML = filtered.map((inst, idx) => `
+                <div class="instance-card" data-idx="${idx}">
                     <div class="instance-avatar">${inst.shortId.substring(0, 4)}</div>
                     <div class="instance-info">
                         <div class="instance-id">${inst.shortId}</div>
@@ -1993,6 +2373,7 @@
             });
 
             if (filtered.length === 0) {
+                lastFilteredMessages = [];
                 content.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-icon">&#9993;</div>
@@ -2002,8 +2383,9 @@
                 return;
             }
 
-            content.innerHTML = filtered.map(msg => `
-                <div class="message-card ${msg.isRead ? '' : 'unread'}" onclick='showMessageDetails(${JSON.stringify(msg)})'>
+            lastFilteredMessages = filtered;
+            content.innerHTML = filtered.map((msg, idx) => `
+                <div class="message-card ${msg.isRead ? '' : 'unread'}" data-idx="${idx}">
                     <div class="message-header">
                         <div class="message-from">
                             <div class="message-avatar">${msg.shortFrom.substring(0, 4)}</div>
@@ -2033,6 +2415,7 @@
         }
 
         function deleteFact(id, btn) {
+            if (!confirm('Delete this fact?')) return;
             const card = btn.closest('.fact-card');
             card.style.opacity = '0.5';
             card.style.pointerEvents = 'none';
@@ -2041,10 +2424,12 @@
                     if (!res.ok) throw new Error('Delete failed');
                     allData.facts = allData.facts.filter(f => f.id !== id);
                     renderFacts();
+                    showToast('Fact deleted', 'success');
                 })
                 .catch(() => {
                     card.style.opacity = '';
                     card.style.pointerEvents = '';
+                    showToast('Failed to delete fact', 'error');
                 });
         }
 
@@ -2075,22 +2460,27 @@
                 return;
             }
 
-            content.innerHTML = filtered.map(fact => `
-                <div class="fact-card ${fact.isLocal ? 'local' : ''}" onclick='showFactDetails(${JSON.stringify(fact)})'>
+            content.innerHTML = filtered.map(fact => {
+                const isSelected = selectedFacts.has(fact.id);
+                const selectableClass = selectMode ? ' selectable' : '';
+                const selectedClass = isSelected ? ' selected-for-delete' : '';
+                return `
+                <div class="fact-card ${fact.isLocal ? 'local' : ''}${selectableClass}${selectedClass}" data-fact-id="${fact.id}">
+                    ${selectMode ? `<div class="fact-select-checkbox">${isSelected ? '&#10003;' : ''}</div>` : ''}
                     <div class="fact-content">${escapeHtml(fact.preview)}</div>
                     <div class="fact-footer">
                         <div class="fact-tags">
                             ${fact.tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}
                         </div>
                         <div class="fact-footer-right">
-                            <button class="delete-fact-btn" onclick="event.stopPropagation(); deleteFact(${fact.id}, this)" title="Delete fact">&#128465;</button>
+                            ${!selectMode ? `<button class="delete-fact-btn" data-fact-id="${fact.id}" title="Delete fact">&#128465;</button>` : ''}
                             <span class="fact-source ${fact.isLocal ? 'local' : ''}">
                                 ${fact.isLocal ? '&#10003; Local' : fact.shortDir}
                             </span>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
         }
 
         // Utils
@@ -2101,13 +2491,19 @@
         }
 
         function showModal(title, content) {
+            previousActiveElement = document.activeElement;
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-body').innerHTML = content;
             document.getElementById('modal').classList.add('active');
+            setTimeout(() => {
+                const closeBtn = document.querySelector('#modal .modal-close');
+                if (closeBtn) closeBtn.focus();
+            }, 100);
         }
 
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
+            if (previousActiveElement) { previousActiveElement.focus(); previousActiveElement = null; }
         }
 
         function showInstanceDetails(inst) {
@@ -2191,7 +2587,9 @@
             `);
         }
 
-        function showFactDetails(fact) {
+        function showFactDetails(factId) {
+            const fact = allData.facts.find(f => f.id === factId);
+            if (!fact) return;
             showModal('Fact Details', `
                 <div class="modal-field">
                     <div class="modal-label">ID</div>
@@ -2209,7 +2607,238 @@
                     <div class="modal-label">Content</div>
                     <div class="modal-content">${escapeHtml(fact.content)}</div>
                 </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                    <button class="btn btn-primary" onclick="showEditFactForm(${fact.id})">Edit</button>
+                </div>
             `);
+        }
+
+        // === Memory Management Functions ===
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        async function fetchFactStats() {
+            if (factStatsFetchInFlight) return;
+            factStatsFetchInFlight = true;
+            try {
+                const res = await fetch('/api/facts/stats');
+                factStats = await res.json();
+                renderFactStats();
+            } catch (err) {
+                console.error('Failed to fetch fact stats:', err);
+            } finally {
+                factStatsFetchInFlight = false;
+            }
+        }
+
+        function renderFactStats() {
+            const banner = document.getElementById('fact-stats-banner');
+            if (!factStats) { banner.style.display = 'none'; return; }
+            banner.style.display = 'block';
+
+            document.getElementById('fs-active').textContent = factStats.totalFacts;
+            document.getElementById('fs-size').textContent = formatBytes(factStats.totalSize);
+            document.getElementById('fs-dirs').textContent = factStats.directories ? factStats.directories.length : 0;
+            document.getElementById('fs-deleted').textContent = factStats.deletedFacts;
+
+            const purgeBtn = document.getElementById('purge-btn');
+            purgeBtn.style.display = factStats.deletedFacts > 0 ? 'inline-block' : 'none';
+
+            const tbody = document.getElementById('fact-stats-table-body');
+            if (factStats.directories && factStats.directories.length > 0) {
+                tbody.innerHTML = factStats.directories.map(d => `
+                    <tr>
+                        <td title="${escapeHtml(d.directory)}">${escapeHtml(d.shortDir)}</td>
+                        <td>${d.count}</td>
+                        <td>${formatBytes(d.size)}</td>
+                        <td>${d.oldestAge}</td>
+                        <td>${d.newestAge}</td>
+                    </tr>
+                `).join('');
+            } else {
+                tbody.innerHTML = '<tr><td colspan="5" style="color: var(--muted); text-align: center;">No data</td></tr>';
+            }
+        }
+
+        function toggleStatsExpand() {
+            statsExpanded = !statsExpanded;
+            document.getElementById('fact-stats-details').classList.toggle('expanded', statsExpanded);
+            document.getElementById('stats-expand-icon').classList.toggle('expanded', statsExpanded);
+        }
+
+        // Create Fact
+        function showCreateFactModal() {
+            showModal('Add New Fact', `
+                <div class="modal-field">
+                    <div class="modal-label">Content</div>
+                    <textarea class="modal-edit-textarea" id="create-fact-content" placeholder="Enter fact content..."></textarea>
+                </div>
+                <div class="modal-field">
+                    <div class="modal-label">Tags (comma-separated)</div>
+                    <input type="text" class="modal-edit-tags-input" id="create-fact-tags" placeholder="e.g. architecture, preference, debug">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button class="btn btn-primary" onclick="createFact()">Create</button>
+                </div>
+            `);
+            setTimeout(() => document.getElementById('create-fact-content').focus(), 100);
+        }
+
+        async function createFact() {
+            const content = document.getElementById('create-fact-content').value.trim();
+            const tagsRaw = document.getElementById('create-fact-tags').value.trim();
+            if (!content) { showToast('Content is required', 'warning'); return; }
+
+            const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(t => t) : [];
+
+            try {
+                const res = await fetch('/api/facts/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content, tags })
+                });
+                if (!res.ok) { const msg = await res.text(); throw new Error(msg); }
+                const newFact = await res.json();
+                allData.facts.unshift(newFact);
+                allData.stats.totalFacts++;
+                updateStats();
+                renderFacts();
+                closeModal();
+                fetchFactStats();
+                showToast('Fact created', 'success');
+            } catch (err) {
+                showToast('Failed to create fact: ' + err.message, 'error');
+            }
+        }
+
+        // Edit Fact
+        function showEditFactForm(factId) {
+            const fact = allData.facts.find(f => f.id === factId);
+            if (!fact) return;
+            document.getElementById('modal-title').textContent = 'Edit Fact';
+            document.getElementById('modal-body').innerHTML = `
+                <div class="modal-field">
+                    <div class="modal-label">Content</div>
+                    <textarea class="modal-edit-textarea" id="edit-fact-content">${escapeHtml(fact.content)}</textarea>
+                </div>
+                <div class="modal-field">
+                    <div class="modal-label">Tags (comma-separated)</div>
+                    <input type="text" class="modal-edit-tags-input" id="edit-fact-tags" value="${escapeHtml(fact.tags.join(', '))}">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="showFactDetails(${factId})">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveFactEdit(${factId})">Save</button>
+                </div>
+            `;
+            setTimeout(() => document.getElementById('edit-fact-content').focus(), 100);
+        }
+
+        async function saveFactEdit(factId) {
+            const content = document.getElementById('edit-fact-content').value.trim();
+            const tagsRaw = document.getElementById('edit-fact-tags').value.trim();
+            if (!content) { showToast('Content is required', 'warning'); return; }
+
+            const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(t => t) : [];
+
+            try {
+                const res = await fetch('/api/facts/update', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: factId, content, tags })
+                });
+                if (!res.ok) { const msg = await res.text(); throw new Error(msg); }
+                const updated = await res.json();
+                const idx = allData.facts.findIndex(f => f.id === factId);
+                if (idx >= 0) allData.facts[idx] = updated;
+                renderFacts();
+                showFactDetails(factId);
+                fetchFactStats();
+                showToast('Fact updated', 'success');
+            } catch (err) {
+                showToast('Failed to update fact: ' + err.message, 'error');
+            }
+        }
+
+        // Select Mode & Bulk Delete
+        function toggleSelectMode() {
+            selectMode = !selectMode;
+            selectedFacts.clear();
+            const btn = document.getElementById('select-mode-btn');
+            btn.classList.toggle('active', selectMode);
+            btn.innerHTML = selectMode ? '<span>&#10005;</span> Cancel' : '<span>&#9745;</span> Select';
+            document.getElementById('bulk-action-bar').classList.toggle('active', selectMode);
+            updateBulkCount();
+            renderFacts();
+        }
+
+        function toggleFactSelection(id) {
+            if (selectedFacts.has(id)) {
+                selectedFacts.delete(id);
+            } else {
+                selectedFacts.add(id);
+            }
+            updateBulkCount();
+            renderFacts();
+        }
+
+        function selectAllFacts() {
+            allData.facts.forEach(f => selectedFacts.add(f.id));
+            updateBulkCount();
+            renderFacts();
+        }
+
+        function deselectAllFacts() {
+            selectedFacts.clear();
+            updateBulkCount();
+            renderFacts();
+        }
+
+        function updateBulkCount() {
+            document.getElementById('bulk-count').textContent = selectedFacts.size + ' selected';
+        }
+
+        async function bulkDeleteSelectedFacts() {
+            if (selectedFacts.size === 0) return;
+            if (!confirm(`Delete ${selectedFacts.size} fact(s)? This is a soft delete.`)) return;
+
+            const ids = [...selectedFacts];
+            try {
+                const res = await fetch('/api/facts/bulk-delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ids })
+                });
+                if (!res.ok) { const msg = await res.text(); throw new Error(msg); }
+                allData.facts = allData.facts.filter(f => !selectedFacts.has(f.id));
+                allData.stats.totalFacts = allData.facts.length;
+                updateStats();
+                toggleSelectMode();
+                fetchFactStats();
+                showToast(`${ids.length} fact(s) deleted`, 'success');
+            } catch (err) {
+                showToast('Failed to delete facts: ' + err.message, 'error');
+            }
+        }
+
+        // Purge
+        async function purgeDeletedFacts() {
+            if (!confirm(`Permanently purge ${factStats.deletedFacts} deleted fact(s)? This cannot be undone.`)) return;
+            try {
+                const res = await fetch('/api/facts/purge', { method: 'POST' });
+                if (!res.ok) { const msg = await res.text(); throw new Error(msg); }
+                fetchFactStats();
+                showToast('Deleted facts purged', 'success');
+            } catch (err) {
+                showToast('Failed to purge: ' + err.message, 'error');
+            }
         }
 
         // Keyboard shortcuts
@@ -2268,10 +2897,11 @@
 
             // Populate quick launch with existing instance directories
             const dirs = [...new Set(allData.instances.map(i => i.directory))];
-            quickList.innerHTML = dirs.map(dir => {
+            lastQuickLaunchDirs = dirs;
+            quickList.innerHTML = dirs.map((dir, idx) => {
                 const name = dir.split('/').pop();
                 return `
-                    <div class="quick-launch-item" onclick="launchFromDir('${escapeHtml(dir)}')">
+                    <div class="quick-launch-item" data-idx="${idx}">
                         <div class="quick-launch-icon">&#128193;</div>
                         <div class="quick-launch-info">
                             <div class="quick-launch-name">${escapeHtml(name)}</div>
@@ -2297,12 +2927,12 @@
         async function launchSession() {
             const dir = document.getElementById('launch-dir').value.trim();
             if (!dir) {
-                alert('Please enter a directory path');
+                showToast('Please enter a directory path', 'warning');
                 return;
             }
 
             if (terminals.length >= MAX_TERMINALS) {
-                alert(`Maximum ${MAX_TERMINALS} terminals allowed. Close one to open another.`);
+                showToast(`Maximum ${MAX_TERMINALS} terminals allowed. Close one to open another.`, 'warning');
                 return;
             }
 
@@ -2389,8 +3019,6 @@
                 connectTerminalWebSocket(termEntry);
             }, 100);
 
-            // Handle window resize
-            window.addEventListener('resize', handleTerminalResize);
             updateTerminalsTray();
         }
 
@@ -2561,9 +3189,108 @@
             return terminals.some(t => t.minimized);
         }
 
-        // Initial fetch and auto-refresh
+        // Toast notification
+        function showToast(message, type = 'info', duration = 3000) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('removing');
+                toast.addEventListener('animationend', () => toast.remove());
+            }, duration);
+        }
+
+        // Focus trap for modals
+        function trapFocus(container) {
+            container.addEventListener('keydown', (e) => {
+                if (e.key !== 'Tab') return;
+                const focusable = container.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+                } else {
+                    if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+                }
+            });
+        }
+        trapFocus(document.getElementById('modal'));
+        trapFocus(document.getElementById('launch-modal'));
+
+        // Delegated click handlers (Phase 1: no inline JSON.stringify)
+        document.getElementById('instances-content').addEventListener('click', (e) => {
+            const card = e.target.closest('.instance-card');
+            if (!card) return;
+            const idx = parseInt(card.dataset.idx);
+            if (idx >= 0 && idx < lastFilteredInstances.length) {
+                showInstanceDetails(lastFilteredInstances[idx]);
+            }
+        });
+
+        document.getElementById('messages-content').addEventListener('click', (e) => {
+            const card = e.target.closest('.message-card');
+            if (!card) return;
+            const idx = parseInt(card.dataset.idx);
+            if (idx >= 0 && idx < lastFilteredMessages.length) {
+                showMessageDetails(lastFilteredMessages[idx]);
+            }
+        });
+
+        document.getElementById('quick-launch-list').addEventListener('click', (e) => {
+            const item = e.target.closest('.quick-launch-item');
+            if (!item) return;
+            const idx = parseInt(item.dataset.idx);
+            if (idx >= 0 && idx < lastQuickLaunchDirs.length) {
+                launchFromDir(lastQuickLaunchDirs[idx]);
+            }
+        });
+
+        document.getElementById('facts-content').addEventListener('click', (e) => {
+            const deleteBtn = e.target.closest('.delete-fact-btn');
+            if (deleteBtn) {
+                e.stopPropagation();
+                const factId = parseInt(deleteBtn.dataset.factId);
+                deleteFact(factId, deleteBtn);
+                return;
+            }
+            const card = e.target.closest('.fact-card');
+            if (!card) return;
+            const factId = parseInt(card.dataset.factId);
+            if (isNaN(factId)) return;
+            if (selectMode) {
+                toggleFactSelection(factId);
+            } else {
+                showFactDetails(factId);
+            }
+        });
+
+        // Register resize handler once (Phase 2a: no per-call leak)
+        window.addEventListener('resize', handleTerminalResize);
+
+        // Visibility-aware polling (Phase 2c)
+        let refreshTimer = null;
+        function startPolling() {
+            stopPolling();
+            refreshTimer = setInterval(fetchData, REFRESH_INTERVAL);
+        }
+        function stopPolling() {
+            if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
+        }
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopPolling();
+            } else {
+                fetchData();
+                startPolling();
+            }
+        });
+
+        // Initial fetch and start polling
         fetchData();
-        setInterval(fetchData, REFRESH_INTERVAL);
+        startPolling();
     </script>
 </body>
 </html>
